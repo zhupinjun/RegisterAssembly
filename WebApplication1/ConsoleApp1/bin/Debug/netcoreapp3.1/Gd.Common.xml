@@ -1,0 +1,2688 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gd.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Gd.Security.AES">
+            <summary>
+            AES 对称加密类 与Java通用
+            </summary>
+        </member>
+        <member name="M:Gd.Security.AES.EncryptJAVA(System.String,System.String,System.String@,System.String)">
+            <summary>按JAVA方式进行AES加密</summary>
+            <param name="text">明文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="errMsg">错误消息</param>
+            <param name="iv">偏移量,长度为16的字符串 为空时与key相同</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.DecryptJAVA(System.String,System.String,System.String@,System.String)">
+            <summary>按JAVA方式进行AES解密</summary>
+            <param name="text">明文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="errMsg">错误消息</param>
+            <param name="iv">偏移量,长度为16的字符串 为空时与key相同</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.Encrypt(System.String,System.Byte[],System.String@,System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES加密
+            </summary>
+            <param name="text">明文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="errMsg">错误消息</param>
+            <param name="iv">偏移量,长度为16的字符串 为空时与key相同</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.GetKeyBySeed(System.String,System.Int32)">
+            <summary>
+            用种子获取密钥字节
+            </summary>
+            <param name="strKey">密钥种子</param>
+            <param name="encoding">编码格式</param>
+            <param name="nLen">密钥长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.AES.Decrypt(System.String,System.Byte[],System.String@,System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>
+            AES解密
+            </summary>
+            <param name="text">明文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="errMsg">错误消息</param>
+            <param name="iv">偏移量,长度为16的字符串 为空时与key相同</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.EncryptJAVA(System.String,System.Byte[],System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>按JAVA方式进行AES加密</summary>
+            <param name="text">明文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="iv">偏移量,长度为16的字符串 为空时与key相同</param>
+            <param name="mode">加密模式 默认为CBC</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.DecryptJAVA(System.String,System.Byte[],System.Byte[],System.Security.Cryptography.CipherMode,System.Security.Cryptography.PaddingMode)">
+            <summary>按JAVA方式进行AES解密</summary>
+            <param name="text">密文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="iv">偏移量,长度为16的字符串o，为空时也key相同</param>
+            <param name="mode">解密模式 默认为CBC</param>
+            <returns>明文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.EncryptJAVA(System.String,System.String,System.String)">
+            <summary>按JAVA方式进行AES加密</summary>
+            <param name="text">明文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="iv">偏移量,长度为16的字符串 为空时与key相同</param>
+            <returns>密文</returns>
+        </member>
+        <member name="M:Gd.Security.AES.DecryptJAVA(System.String,System.String,System.String)">
+            <summary>按JAVA方式进行AES解密</summary>
+            <param name="text">密文</param>
+            <param name="key">密钥,长度为16的字符串</param>
+            <param name="iv">偏移量,长度为16的字符串o，为空时也key相同</param>
+            <returns>明文</returns>
+        </member>
+        <member name="T:Gd.Security.CryptoService">
+             <summary>
+            流加密解密服务类
+             </summary>
+        </member>
+        <member name="M:Gd.Security.CryptoService.UnEncrypt(System.String)">
+            <summary>
+            解密出文件内容
+            </summary>
+            <param name="filePath">文件物理路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.CryptoService.EncryptStringByUTF8(System.String)">
+            <summary>
+            加密字符串 将编码格式由默认的ASCII改为UTF8
+            </summary>
+            <param name="encryptString">要加密的字符串</param>
+        </member>
+        <member name="M:Gd.Security.CryptoService.EncryptString(System.String)">
+            <summary>
+            加密字符串（有中文时不能正常加解密） 建议使用EncryptStringByUTF8 
+            </summary>
+            <param name="encryptString">要加密的字符串</param>
+        </member>
+        <member name="M:Gd.Security.CryptoService.UnEncryptString(System.String)">
+            <summary>
+            解密字符串
+            </summary>
+            <param name="unEncryptString">要解密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.CryptoService.RFCEncryptString(System.String)">
+             <summary>
+            通过使用基于 System.Security.Cryptography.HMACSHA1 的伪随机数生成器， 加密字符串
+             </summary>
+             <param name="str">需要加密的字符串</param>
+             <returns></returns>
+        </member>
+        <member name="M:Gd.Security.CryptoService.RFCUnEncryptString(System.String)">
+            <summary>
+            通过使用基于 System.Security.Cryptography.HMACSHA1 的伪随机数生成器， 解密字符串
+            </summary>
+            <param name="str">需要解密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.CryptoService.GetMyDateEncryptString(System.String,System.Int32)">
+            <summary>
+            自宝义时间字符串加密
+            </summary>
+            <param name="inputStr">输入字符串</param>
+            <param name="dateTime">输入日期数字(yyyyMMdd)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.CryptoService.MyDateUnEncryptString(System.String,System.String@,System.Int32@)">
+            <summary>
+            自宝义时间字符串解密
+            </summary>
+            <param name="inputStr">输入字符串</param>
+            <param name="returnStr">返回字符串</param>
+            <param name="dateTime">日期数字(yyyyMMdd)</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Security.GdRsa">
+            <summary>
+            Rsa 对称加密类
+            </summary>
+        </member>
+        <member name="M:Gd.Security.GdRsa.DecryptFormXmlKey(System.String,System.String,System.String@,System.Int32)">
+            <summary>
+            针对Silverlight RSA解密
+            </summary>
+            <param name="encryptedStr">加密字符串</param>
+            <param name="privateXmlKey">密钥</param>
+            <param name="errMsg">错误消息</param>
+            <param name="dwKeySize">要使用的密钥的大小（以位为单位）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.EncryptFormXmlKey(System.String,System.String,System.String@,System.Int32)">
+            <summary>
+            针对Silverlight RSA加密
+            </summary>
+            <param name="encryStr">字符串</param>
+            <param name="publicXmlKey">公钥</param>
+            <param name="errMsg">错误消息</param>
+            <param name="dwKeySize">要使用的密钥的大小（以位为单位）</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.EncryptData(System.String,System.String,System.String@)">
+            <summary>
+            加密字符串(公钥)
+            </summary>
+            <param name="resData">字符串</param>
+            <param name="publicKey">密钥</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.DecryptData(System.String,System.String,System.String@)">
+            <summary>
+            解密字符串(私钥)
+            </summary>
+            <param name="resData">加密数据</param>
+            <param name="privateKey">密钥</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.EncryptWithPublicKey(System.String,System.String,System.String@)">
+            <summary>
+            加密字符串(公钥) 利用 Gd.Org.BouncyCastle
+            </summary>
+            <param name="resData">字符串</param>
+            <param name="publicKey">公钥</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.DecryptWithPrivateKey(System.String,System.String,System.String@)">
+            <summary>
+            解密字符串(私钥) Gd.Org.BouncyCastle
+            </summary>
+            <param name="resData">加密数据</param>
+            <param name="privateKey">私钥</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.EncryptWithPrivateKey(System.String,System.String,System.String@)">
+            <summary>
+            加密字符串(私钥)
+            </summary>
+            <param name="resData">字符串</param>
+            <param name="privateKey">私钥</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.DecryptWithPublicKey(System.String,System.String,System.String@)">
+            <summary>
+            解密字符串(公钥)
+            </summary>
+            <param name="resData">加密数据</param>
+            <param name="publicKey">公钥</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.Sign(System.String,System.String,System.String@,System.String)">
+            <summary>
+            签名,失败抛出异常
+            </summary>
+            <param name="content">待签名字符串</param>
+            <param name="privateKey">私钥</param>
+            <param name="input_charset">编码格式</param>
+            <param name="errMsg">错误信息</param>
+            <returns>签名后字符串</returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.Verify(System.String,System.String,System.String,System.String@,System.String)">
+            <summary>
+            验签,失败抛出异常
+            </summary>
+            <param name="content">待验签字符串</param>
+            <param name="signedString">签名</param>
+            <param name="publicKey">公钥</param>
+            <param name="input_charset">编码格式</param>
+            <param name="errMsg">错误信息</param>
+            <returns>true(通过)，false(不通过)</returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.EncryptByPubKey(System.Byte[],System.String,System.String)">
+            <summary>
+            公钥加密
+            </summary>
+            <param name="data"></param>
+            <param name="publicKey"></param>
+            <param name="input_charset"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.DecryptByPriKey(System.Byte[],System.String,System.String,System.String@)">
+            <summary>
+            私钥解密
+            </summary>
+            <param name="data"></param>
+            <param name="privateKey"></param>
+            <param name="input_charset"></param>
+            <param name="errMsg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.StringToHex(System.String)">
+             <summary>
+            字符串转换验签字符
+             </summary>
+             <param name="asciiString">编码字符</param>
+             <returns></returns>
+        </member>
+        <member name="M:Gd.Security.GdRsa.HexToString(System.String)">
+            <summary>
+            转换验签字符为字符串
+            </summary>
+            <param name="HexValue">验签字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Security.RSAPcks12Helper">
+            <summary>
+            RSA PCKS12证书帮助类
+            </summary>
+        </member>
+        <member name="F:Gd.Security.RSAPcks12Helper.MAX_ENCRYPT_BLOCK">
+            RSA最大加密明文大小
+        </member>
+        <member name="F:Gd.Security.RSAPcks12Helper.MAX_DECRYPT_BLOCK">
+            RSA最大解密密文大小
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.SignDataWithPcks12(System.String,System.String,System.Byte[],System.String)">
+            <summary>
+            签名
+            </summary>
+            <param name="p12Cert">P12/PFX证书的 base64格式</param>
+            <param name="certPwd">证书密码</param>
+            <param name="contentData">要签名的数据</param>
+            <param name="signAlgorithm">签名算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.SignDataWithPcks12(System.Byte[],System.Char[],System.Byte[],System.String)">
+            <summary>
+            签名
+            </summary>
+            <param name="p12CertData">P12/PFX证书</param>
+            <param name="certPwdData">证书密码</param>
+            <param name="contentData">要签名的数据</param>
+            <param name="signAlgorithm">签名算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.VerifyDataWithX509(System.String,System.Byte[],System.String,System.String)">
+            <summary>
+            验签
+            </summary>
+            <param name="x509Cert">x509通用证书base64格式</param>
+            <param name="content">原始数据</param>
+            <param name="sign">签名结果base64格式</param>
+            <param name="signAlgorithm">签名算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.VerifyDataWithX509(System.Byte[],System.Byte[],System.Byte[],System.String)">
+            <summary>
+            验签
+            </summary>
+            <param name="x509CertData">x509通用证书</param>
+            <param name="contentData">原始数据</param>
+            <param name="signData">签名结果</param>
+            <param name="signAlgorithm">签名算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GetPrivateKeyFromPcks12(System.String,System.String)">
+            <summary>
+            获取RSA私钥
+            </summary>
+            <param name="p12Cert">P12/PFX证书的 base64格式</param>
+            <param name="certPwd">证书密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GetPrivateKeyFromPcks12(System.Byte[],System.Char[])">
+            <summary>
+            获取RSA私钥
+            </summary>
+            <param name="p12CertData">P12/PFX证书</param>
+            <param name="certPwdData">证书密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GetPublicKeyFromPcks12(System.String,System.String)">
+            <summary>
+            获取RSA公钥
+            </summary>
+            <param name="p12Cert">P12/PFX证书的 base64格式</param>
+            <param name="certPwd">证书密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GetPublicKeyFromPcks12(System.Byte[],System.Char[])">
+            <summary>
+            获取RSA公钥
+            </summary>
+            <param name="p12CertData">P12/PFX证书</param>
+            <param name="certPwdData">证书密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GetPublicKeyFromX509(System.String)">
+            <summary>
+            获取RSA公钥
+            </summary>
+            <param name="x509Cert">x509通用证书base64格式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GetPublicKeyFromX509(System.Byte[])">
+            <summary>
+            获取RSA公钥
+            </summary>
+            <param name="x509CertData">x509通用证书</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.EncryptWithX509(System.String,System.Byte[],System.String)">
+            <summary>
+            公钥加密
+            </summary>
+            <param name="x509Cert">x509通用证书base64格式</param>
+            <param name="contentData">待加密的数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.EncryptWithX509(System.Byte[],System.Byte[],System.String)">
+            <summary>
+            公钥加密
+            </summary>
+            <param name="x509CertData">x509通用证书</param>
+            <param name="contentData">待加密的数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.EncryptWithPublicKey(System.String,System.Byte[],System.String)">
+            <summary>
+            公钥加密
+            </summary>
+            <param name="publicKey">RSA公钥 base64格式</param>
+            <param name="contentData">待加密的数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.EncryptWithPublicKey(System.Byte[],System.Byte[],System.String)">
+            <summary>
+            公钥加密
+            </summary>
+            <param name="publicKey">RSA公钥</param>
+            <param name="contentData">待加密的数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.DecryptWithPcks12(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="p12Cert">P12/PFX证书的 base64格式</param>
+            <param name="certPwd">证书密码</param>
+            <param name="content">待解密数据 base64格式</param>
+            <param name="encoding">解密出来的数据编码格式，默认UTF-8</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.DecryptWithPcks12(System.Byte[],System.Char[],System.Byte[],System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="p12Data">P12/PFX证书</param>
+            <param name="certPwdData">证书密码</param>
+            <param name="contentData">待解密数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.DecryptWithPrivateKey(System.String,System.String,System.String,System.String)">
+            <summary>
+            私钥解密
+            </summary>
+            <param name="privateKey">RSA私钥  base64格式</param>
+            <param name="content">待解密数据 base64格式</param>
+            <param name="encoding">解密出来的数据编码格式，默认UTF-8</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.DecryptWithPrivateKey(System.Byte[],System.Byte[],System.String)">
+            <summary>
+            私钥解密
+            </summary>
+            <param name="privateKey">RSA私钥</param>
+            <param name="contentData">待解密数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.EncryptWithPrivateKey(System.String,System.Byte[],System.String)">
+            <summary>
+            私钥加密
+            </summary>
+            <param name="privateKey">RSA私钥 base64格式</param>
+            <param name="contentData">待加密的数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.EncryptWithPrivateKey(System.Byte[],System.Byte[],System.String)">
+            <summary>
+            私钥加密
+            </summary>
+            <param name="privateKey">RSA私钥</param>
+            <param name="contentData">待加密的数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.DecryptWithPublicKey(System.String,System.String,System.String,System.String)">
+            <summary>
+            公钥解密
+            </summary>
+            <param name="publicKey">RSA公钥  base64格式</param>
+            <param name="content">待解密数据 base64格式</param>
+            <param name="encoding">解密出来的数据编码格式，默认UTF-8</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.DecryptWithPublicKey(System.Byte[],System.Byte[],System.String)">
+            <summary>
+            公钥解密
+            </summary>
+            <param name="publicKey">RSA公钥</param>
+            <param name="contentData">待解密数据</param>
+            <param name="algorithm">加密算法</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.RSAPcks12Helper.GeneratePFX(System.String,System.Byte[],System.Byte[],System.Byte[],System.String)">
+            <summary>
+            根据crt以及RSA私钥生成pfx证书
+            </summary>
+            <param name="passWord">证书密码</param>
+            <param name="x509CertData">crt证书</param>
+            <param name="privateKey">Rsa私钥</param>
+            <param name="x509CertChainData">证书链</param>
+            <param name="alias">默认别名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.SM2Utils.Encrypt(System.String,System.String,System.String@)">
+            <summary>
+            加密数据
+            </summary>
+            <param name="publicKey">公钥</param>
+            <param name="data">需要加密的数据</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.SM2Utils.Decrypt(System.String,System.String,System.String@)">
+            <summary>
+            解密数据
+            </summary>
+            <param name="privateKey">私钥</param>
+            <param name="data">需要加密的数据</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Gd.Security.SupportClass.URShift(System.Int32,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:Gd.Security.SupportClass.URShift(System.Int32,System.Int64)" -->
+        <!-- Badly formed XML comment ignored for member "M:Gd.Security.SupportClass.URShift(System.Int64,System.Int32)" -->
+        <!-- Badly formed XML comment ignored for member "M:Gd.Security.SupportClass.URShift(System.Int64,System.Int64)" -->
+        <member name="T:Gd.Security.SM4Utils">
+            <summary>
+            SM4加密解密类
+            参考：https://www.cnblogs.com/hzxy-blog/p/9355064.html
+            </summary>
+        </member>
+        <member name="F:Gd.Security.SM4Utils.secretKey">
+            <summary>
+            密钥
+            </summary>
+        </member>
+        <member name="F:Gd.Security.SM4Utils.iv">
+            <summary>
+            CBC加密时传入
+            </summary>
+        </member>
+        <member name="M:Gd.Security.SM4Utils.EncryptData_ECB(System.String)">
+            <summary>
+            ecb加密 调用时需要设置 变量 secretKey
+            </summary>
+            <param name="plainText">加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.SM4Utils.DecryptData_ECB(System.String)">
+            <summary>
+            ecb解密 调用时需要设置 变量 secretKey
+            </summary>
+            <param name="cipherText">解密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.SM4Utils.EncryptData_CBC(System.String)">
+            <summary>
+            cbc加密  调用时需要设置 变量 secretKey、iv
+            </summary>
+            <param name="plainText">加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Security.SM4Utils.DecryptData_CBC(System.String)">
+            <summary>
+            cbc解密 调用时需要设置 变量 secretKey、iv
+            </summary>
+            <param name="cipherText">解密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.BarCode.BarCode39Image">
+            <summary>
+            生成Code 39条形码
+            </summary>
+        </member>
+        <member name="P:Gd.Common.BarCode.BarCode39Image.BordRuleName">
+            <summary>
+            条码类型
+            </summary>
+        </member>
+        <member name="M:Gd.Common.BarCode.BarCode39Image.#ctor(System.String)">
+            <summary>
+            生成Code 39条形码
+            </summary>
+            <param name="s">需要生成条码的字符串</param>
+        </member>
+        <member name="P:Gd.Common.BarCode.BarCode39Image.Roles">
+            <summary>
+            字符对照键值对
+            </summary>
+        </member>
+        <member name="T:Gd.Common.BarCode.DrawImageBord">
+            <summary>
+            生成条码操作类
+            </summary>
+        </member>
+        <member name="P:Gd.Common.BarCode.DrawImageBord.BordRuleName">
+            <summary>
+            条码类型
+            </summary>
+        </member>
+        <member name="P:Gd.Common.BarCode.DrawImageBord.Roles">
+            <summary>
+            字符对照键值对
+            </summary>
+        </member>
+        <member name="M:Gd.Common.BarCode.DrawImageBord.#ctor(System.String)">
+            <summary>
+            条形码生成时前后要加上*号 不然读卡器读不出来
+            </summary>
+            <param name="s">要画的条形码字符串</param>
+        </member>
+        <member name="M:Gd.Common.BarCode.DrawImageBord.Draw(System.Int32)">
+            <summary>
+            画图(高度默认为2cm即72px)
+            </summary>
+            <param name="width">条形码字符串宽度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.BarCode.DrawImageBord.DrawAndText">
+            <summary>
+            画图并且显示文本
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.BarCode.DrawImageBord.DrawString(System.String,System.Drawing.Graphics,System.Boolean,System.Int32)">
+            <summary>
+            画条码
+            </summary>
+            <param name="s">条码字符串</param>
+            <param name="g">画笔</param>
+            <param name="isDrawText">是否画文本</param>
+            <param name="height">条码高度</param>
+        </member>
+        <member name="M:Gd.Common.BarCode.DrawImageBord.GetStringWidth(System.String)">
+            <summary>
+            获取条码宽度
+            </summary>
+            <param name="s">条码字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.BarCode.DrawImageBord.GetCharWidth(System.String)">
+            <summary>
+            获取字符宽度
+            </summary>
+            <param name="s">字符</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.Chinese.Chinese">
+            <summary>
+            中文处理类
+            </summary>
+        </member>
+        <member name="F:Gd.Common.Chinese.Chinese.pyValue">
+            <summary>
+            拼音数字编码
+            </summary>
+        </member>
+        <member name="F:Gd.Common.Chinese.Chinese.pyName">
+            <summary>
+            拼音编码
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Chinese.Chinese.CharacterConvertString(System.String)">
+            <summary>
+            把汉字转换成拼音(全拼)
+            </summary>
+            <param name="hzString">汉字字符串</param>
+            <returns>转换后的拼音(全拼)字符串</returns>
+        </member>
+        <member name="M:Gd.Common.Chinese.Chinese.GetChineseSpell(System.String)">
+             <summary>
+            获得一个字符串的汉语拼音码
+            </summary>
+            <param name="strText">字符串</param>
+            <returns>汉语拼音码,该字符串只包含大写的英文字母</returns>
+        </member>
+        <member name="M:Gd.Common.Chinese.Chinese.Character2ASCII(System.String)">
+            <summary>
+            汉字转化为AscII（十六进制)
+            </summary>
+            <param name="character">汉字</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Chinese.Chinese.ASCII2Character(System.String)">
+            <summary>
+            AscII 码转化为汉字
+            </summary>
+            <param name="ascCode">AscII码十六进表示方式</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Chinese.Chinese.ConvertToChinese(System.Double)">
+            <summary>
+            将数字转化成大写
+            </summary>
+            <param name="x">要转化的数值</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.EnStoneClass">
+            <summary>
+            电子档案存储类别
+            </summary>
+        </member>
+        <member name="T:Gd.Common.WebSvcCaller">
+            <summary>
+             WebService调用
+            </summary>
+        </member>
+        <member name="M:Gd.Common.WebSvcCaller.QuerySoapWebService(System.String,System.String,System.Collections.Hashtable)">
+            <summary>   
+            通用WebService调用(Soap),参数Pars为String类型的参数名、参数值 调用时不需要加入wsdl 如：http://www.webxml.com.cn/WebServices/WeatherWebService.asmx
+            </summary>    
+        </member>
+        <member name="T:Gd.Common.HTTP">
+            <summary>
+            HTTP类 
+            </summary>
+        </member>
+        <member name="M:Gd.Common.HTTP.HttpIsOK(System.String,System.String@,System.Int32)">
+            <summary>
+            http地址是否能正常访问
+            </summary>
+            <param name="url">请求的路径</param>
+            <param name="errMsg">不能正常访问的错误消息</param>
+            <param name="timeOut">访问超时时间，单位为毫秒，默认为5000毫秒</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.HttpHandle.ActionReturns">
+            <summary>
+            返回集合对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionReturns.R">
+            <summary>
+            调用返回集合
+            </summary>
+        </member>
+        <member name="T:Gd.Common.HttpHandle.ActionRet">
+            <summary>
+            访问返回参数
+            </summary>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.ActionRet.#ctor">
+            <summary>
+            访问返回参数
+            V会自动实例化
+            </summary>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.ActionRet.#ctor(System.Boolean,System.String)">
+            <summary>
+            访问返回参数
+            V会自动实例化
+            </summary>
+            <param name="s">状态</param>
+            <param name="n">提示消息</param>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionRet.S">
+            <summary>
+            返回状态 Status
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionRet.N">
+            <summary>
+            返回提示消息 SysNote
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionRet.V">
+            <summary>
+            返回参数值说明 ReturnValues
+            </summary>
+        </member>
+        <member name="T:Gd.Common.HttpHandle.SendMessage">
+            <summary>
+            Web访问方法参数对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.SendMessage.UID">
+            <summary>
+            用户编号 UserId
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.SendMessage.LN">
+            <summary>
+            登录名 LoginName
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.SendMessage.RN">
+            <summary>
+            姓名 RealName
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.SendMessage.MC">
+            <summary>
+            主管单位代码 MajorCompanyId
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.SendMessage.TC">
+            <summary>
+            访问安全令牌 TokenCode 
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.SendMessage.AM">
+            <summary>
+            调用方法集合
+            </summary>
+        </member>
+        <member name="T:Gd.Common.HttpHandle.ActionMessage">
+            <summary>
+            访问消息对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionMessage.M">
+            <summary>
+            访问方法名
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionMessage.P">
+            <summary>
+            参数集合
+            </summary>
+        </member>
+        <member name="T:Gd.Common.HttpHandle.ActionPara">
+            <summary>
+            调用/返回参数说明
+            </summary>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.ActionPara.#ctor">
+            <summary>
+            调用/返回参数说明
+            </summary>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.ActionPara.#ctor(System.String,System.String)">
+            <summary>
+            构造函数 调用、返回参数说明
+            </summary>
+            <param name="pt">参数类型</param>
+            <param name="pv">参数值 json格式</param>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionPara.PN">
+            <summary>
+            参数名
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionPara.PT">
+            <summary>
+            参数类型全名 
+            </summary>
+        </member>
+        <member name="P:Gd.Common.HttpHandle.ActionPara.PV">
+            <summary>
+            参数值
+            </summary>
+        </member>
+        <member name="F:Gd.Common.HttpHandle.MediaType.APPLICATION_XML">
+            <summary>
+            "application/xml"
+            </summary>
+        </member>
+        <member name="F:Gd.Common.HttpHandle.MediaType.APPLICATION_JSON">
+            <summary>
+            application/json
+            </summary>
+        </member>
+        <member name="F:Gd.Common.HttpHandle.MediaType.APPLICATION_FORM_URLENCODED">
+            <summary>
+            "application/x-www-form-urlencoded"
+            </summary>
+        </member>
+        <member name="T:Gd.Common.HttpHandle.HttpHelper">
+            <summary>
+            Http访问
+            </summary>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.Get(System.String,System.String@)">
+            <summary>
+            通过 WebClient DownloadString获取字符串
+            </summary>
+            <param name="url">访问地址</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.Post(System.String,System.String,System.String@,System.String)">
+            <summary>
+            通过 WebClient DownloadString获取字符串
+            </summary>
+            <param name="url">访问地址</param>
+            <param name="data">提交数据</param>
+            <param name="errMsg">错误消息</param>
+            <param name="mediaType">传输</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.SerializeParam(System.Collections.Generic.List{System.String},System.Collections.Generic.List{Gd.Common.HttpHandle.ActionPara[]},System.String@)">
+            <summary>
+            序列化调用方法及参数
+            </summary>
+            <param name="fullMethodName">调用方法全名</param>
+            <param name="errMsg">错误消息</param>
+            <param name="paras">参数集合</param>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.CallMethod(System.String,System.String,Gd.Common.HttpHandle.ActionPara[])">
+            <summary>
+            通用调用方法
+            </summary>
+            <param name="url">访问地址</param>
+            <param name="method">方法名 全名 如：GDHousePlatformBLL.HouseBase.BankTypeBLL.AddBankType</param>
+            <param name="callBack">回调方法</param>
+            <param name="methodName">方法名</param>
+            <param name="paras">参数集合</param>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.CallMethod(System.String,System.String,System.String[])">
+            <summary>
+            通用调用方法
+            </summary>
+            <param name="url">访问地址</param>
+            <param name="method">方法名 全名 如：GDHousePlatformBLL.HouseBase.BankTypeBLL.AddBankType</param>
+            <param name="callBack">回调方法</param>
+            <param name="methodName">方法名</param>
+            <param name="paras">参数集合</param>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.CallMethods(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String[]})">
+            <summary>
+            批量调用方法集合
+            </summary>
+            <param name="url">访问地址</param>
+            <param name="methods">方法集合【与参数集合个数相同且一一对应】</param>
+            <param name="pars">参数集合</param>
+            <param name="callBack">回调</param>
+        </member>
+        <member name="M:Gd.Common.HttpHandle.HttpHelper.CallMethods(System.String,System.Collections.Generic.List{System.String},System.Collections.Generic.List{Gd.Common.HttpHandle.ActionPara[]})">
+            <summary>
+            批量调用方法集合
+            </summary>
+            <param name="url">访问地址</param>
+            <param name="methods">方法集合【与参数集合个数相同且一一对应】</param>
+            <param name="pars">参数集合</param>
+            <param name="callBack">回调</param>
+        </member>
+        <member name="T:Gd.Common.FormDataContent">
+            <summary>
+            表单内容对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.FormDataContent.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Gd.Common.FormDataContent.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="P:Gd.Common.FormDataContent.Content">
+            <summary>
+            文件内容 文件时才需要、文件控件传Value即可
+            </summary>
+        </member>
+        <member name="T:Gd.Common.WebRequestInvoke">
+            <summary>
+            WebRequest访问帮助类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.WebRequestInvoke.RemoteCertificateValidationCallback(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            获取或设置用于验证服务器证书的回调
+            </summary>
+            <param name="sender">发关对象</param>
+            <param name="certificate">认证我要</param>
+            <param name="chain"></param>
+            <param name="sslPolicyErrors">枚举安全套接字层 (SSL) 策略错误。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.WebRequestInvoke.HttpPostFormReturnStr(System.String,System.Collections.Generic.List{Gd.Common.FormDataContent},System.String@,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.Int32,System.String,System.String,System.Text.Encoding)">
+            <summary>
+            Http Post以表单方式提交数据 返回字符串
+            </summary>
+            <param name="url">提交URL</param>
+            <param name="formData">表单内容对象</param>
+            <param name="errMsg">错误消息</param>
+            <param name="header">头文件</param>
+            <param name="timeOut">超时时间</param>
+            <param name="readwritetimeOut">读超时时间</param>
+            <param name="httpsCertFileName">若是https传值认证文件</param>
+            <param name="httpsCertPassword">传入认证密码</param>
+            <param name="encoding">编码格式：默认为utf8</param>
+            <returns>返回字符串</returns>
+        </member>
+        <member name="M:Gd.Common.WebRequestInvoke.HttpPostFormReturnByte(System.String,System.Collections.Generic.List{Gd.Common.FormDataContent},System.String@,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Http Post以表单方式提交数据 返回二进制数据
+            </summary>
+            <param name="url">提交URL</param>
+            <param name="formData">表单内容对象</param>
+            <param name="errMsg">错误消息</param>
+            <param name="header">头文件</param>
+            <param name="timeOut">超时时间</param>
+            <param name="readwritetimeOut">读超时时间</param>
+            <param name="httpsCertFileName">若是https传值认证文件</param>
+            <param name="httpsCertPassword">传入认证密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.WebRequestInvoke.HttpGetBytes(System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Http Get请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">参数内容</param>
+            <param name="errMsg">错误消息</param>
+            <param name="header">访问头</param>
+            <param name="timeOut">超时时间 默认120秒</param>
+            <param name="readwritetimeOut">读取流超时时间 默认300秒</param>
+            <param name="httpsCertFileName">https访问时认证文件（为空表示默认认证）</param>
+            <param name="httpsCertPassword">https访问时认证密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.WebRequestInvoke.HttpPost(System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Post提交数据
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">提交内容</param>
+            <param name="errMsg">错误消息</param>
+            <param name="header">访问头</param>
+            <param name="contentType">访问类型</param>
+            <param name="timeOut">超时时间 默认120秒</param>
+            <param name="readwritetimeOut">读取流超时时间 默认300秒</param>
+            <param name="httpsCertFileName">https访问时认证文件（为空表示默认认证）</param>
+            <param name="httpsCertPassword">https访问时认证密码</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.WebRequestInvoke.HttpGet(System.String,System.String,System.String@,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            Http Get请求
+            </summary>
+            <param name="url">地址</param>
+            <param name="body">参数内容</param>
+            <param name="errMsg">错误消息</param>
+            <param name="header">访问头</param>
+            <param name="contentType">访问类型</param>
+            <param name="timeOut">超时时间 默认120秒</param>
+            <param name="readwritetimeOut">读取流超时时间 默认300秒</param>
+            <param name="httpsCertFileName">https访问时认证文件（为空表示默认认证）</param>
+            <param name="httpsCertPassword">https访问时认证密码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.WebServiceCaller">
+            <summary>
+            利用WebRequest/WebResponse进行WebService调用的类 提供通过Post/Get/Soap方式调用 支持https
+            </summary>
+        </member>
+        <member name="M:Gd.Common.WebServiceCaller.RemoteCertificateValidationCallback(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            获取或设置用于验证服务器证书的回调
+            </summary>
+            <param name="sender">发关对象</param>
+            <param name="certificate">认证我要</param>
+            <param name="chain"></param>
+            <param name="sslPolicyErrors">枚举安全套接字层 (SSL) 策略错误。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.WebServiceCaller.QueryPostWebService(System.String,System.String,System.Collections.Hashtable,System.String,System.String)">
+            <summary>
+            需要WebService支持Post调用
+            </summary>
+            <param name="url">调用地址</param>
+            <param name="methodName">调用方法名</param>
+            <param name="pars">参数集合</param>
+            <param name="fileName">https请求认证文件</param>
+            <param name="password">https请求证件密码</param>
+        </member>
+        <member name="M:Gd.Common.WebServiceCaller.SetHttpWebRequest(System.String,System.Net.HttpWebRequest,System.String,System.String)">
+            <summary>
+            设置Https请求WebRequest
+            </summary>
+            <param name="url">请求地址</param>
+            <param name="webRequest">请求对象</param>
+            <param name="fileName">认证文件</param>
+            <param name="password">认证密码</param>
+        </member>
+        <member name="M:Gd.Common.WebServiceCaller.QueryGetWebService(System.String,System.String,System.Collections.Hashtable,System.String,System.String)">
+            <summary>
+            需要WebService支持Get调用
+            </summary>
+        </member>
+        <member name="M:Gd.Common.WebServiceCaller.QuerySoapWebService(System.String,System.String,System.Collections.Hashtable,System.String,System.String)">
+            <summary>
+            通用WebService调用(Soap),参数Pars为String类型的参数名、参数值 调用地址不需要加入wsdl 如：http://www.webxml.com.cn/WebServices/WeatherWebService.asmx
+            </summary>
+        </member>
+        <member name="M:Gd.Common.WebServiceCaller.SetWebRequest(System.Net.HttpWebRequest)">
+            <summary>
+            设置凭证与超时时间
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="T:Gd.Common.WebServiceHelper">
+            <summary>
+            动态调用WebService帮助类 支持https
+            </summary>
+        </member>
+        <member name="T:Gd.Common.Json">
+            <summary>
+            JSON对象类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Json.GetJsonString(System.Object)">
+             <summary>
+             返回json字符串[System.Runtime.Serialization.Json]
+             </summary>
+            <param name="obj">序列化对象</param>
+             <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Json.GetJsonObj(System.String,System.Type)">
+             <summary>
+             返回json序列化对象
+             </summary>
+             <param name="jsonString">json字符串</param>
+            <param name="type">序列化对象类别</param>
+             <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Json.GetJsonString(System.Data.DataTable)">
+            <summary>
+            将DataTablel转换成JSON字符串
+            </summary>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Json.GetJsonObj(System.String)">
+            <summary>
+            将JSON字符串转换成DataTable
+            </summary>
+            <param name="jsonStr">JSON字符串</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.Math.Formula">
+            <summary>
+            数学公式计算类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Math.Formula.Arithmetic(System.String@,System.String@)">
+            <summary>
+            四则运算
+            </summary>
+            <param name="arithmeticExpress">四则运算表达式</param>
+            <param name="errMsg">错误消息</param>
+        </member>
+        <member name="M:Gd.Common.Math.Formula.CalFormula(System.String,System.String@)">
+            <summary>
+            计算表达式值
+            </summary>
+            <param name="formula">计算表达式</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Math.Formula.NumAdd(System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
+            <summary>
+            加法运算
+            </summary>
+            <param name="s1">参数1</param>
+            <param name="s2">参数2</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.ObjectConvert">
+             <summary>
+            对象转化类
+             </summary>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataTableToObject``1(System.Data.DataTable)">
+            <summary>
+            将DataTable转化成为实体对象集合
+            </summary>
+            <typeparam name="T">实体对象类</typeparam>
+            <param name="dt">数据表</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataTableToObject``1(System.Data.DataTable,System.Boolean)">
+            <summary>
+            将DataTable转化成为实体对象集合
+            </summary>
+            <typeparam name="T">实体对象类</typeparam>
+            <param name="dt">数据表</param>
+            <param name="isConField">是否转换公共变量</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataTableToObject(System.Type,System.Data.DataTable)">
+            <summary>
+            将DataTable转化成为实体对象集合
+            </summary>
+            <param name="entityType">实体对象</param>
+            <param name="dt">数据表</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataTableToObject(System.Type,System.Data.DataTable,System.Boolean)">
+            <summary>
+            将DataTable转化成为实体对象集合
+            </summary>
+            <param name="entityType">实体对象</param>
+            <param name="dt">数据表</param>
+            <param name="isConField">是否转换公共变量</param>
+            <returns>对象集合</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataRowToObject``1(System.Data.DataRow,System.Boolean)">
+            <summary>
+            将DataRow转化成为实体对象
+            </summary>
+            <typeparam name="T">实体对象类</typeparam>
+            <param name="row">数据行</param>
+            <param name="isConField">是否转换公共变更</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataRowToObject``1(System.Data.DataRow)">
+            <summary>
+            将DataRow转化成为实体对象
+            </summary>
+            <typeparam name="T">实体对象类</typeparam>
+            <param name="row">数据行</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.DataRowToObject(System.Data.DataRow,System.Type,System.Boolean)">
+            <summary>
+            将DataRow转化成为实体对象
+            </summary>
+            <param name="row">数据行</param>
+            <param name="entityType">实体类别</param>
+            <param name="isConField">是否转换公共变更</param>
+            <returns>对象</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetJsonString(System.Data.DataTable)">
+            <summary>
+            将DataTable转换为Json格式
+            </summary>
+            <param name="dt">DataTable</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetJsonString``1(``0)">
+            <summary>
+            将实体对象转化为Json格式
+            </summary>
+            <typeparam name="T">实体对象类</typeparam>
+            <param name="obj">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetJsonString``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体对象集转化为Json格式
+            </summary>
+            <typeparam name="T">实体对象类</typeparam>
+            <param name="objs">实体对象集</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetObjectClone``1(``0)">
+            <summary>
+            取得对象副本
+            </summary>
+            <typeparam name="T">对象类型</typeparam>
+            <param name="obj">对象实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetObjClone(System.Object,System.Type)">
+            <summary>
+            产生一个对象的附本 单个对象 仅适用于对象 不支持System基础类型 仅转换基础类型
+            </summary>
+            <typeparam name="T">转换后的泛型对象</typeparam>
+            <param name="model">是否转换对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetObjClone(System.Collections.IList,System.Type)">
+            <summary>
+            产生一个对象的附本(适用于对象、List、IList、ObservableCollection集合) 可实现深度复制
+            </summary>
+            <param name="obj">原对象</param>
+            <typeparam name="T">转换后的泛型对象</typeparam>
+            <param name="newType">转换为新的对象类型</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetModelFileds``1">
+            <summary>
+            取得对象字段字符串集合，以","分隔 
+            </summary>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ConvertToObject``2(``1)">
+            <summary>
+            对象转换（转换为一个新的对象）
+            </summary>
+            <typeparam name="NewModel">转换后的对象</typeparam>
+            <typeparam name="Model">需要转换的对象</typeparam>
+            <param name="model">需要转换的实体对象</param>
+            <returns>NewModel</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ConvertToObject``2(``1,System.Boolean)">
+            <summary>
+            对象转换（转换为一个新的对象）
+            </summary>
+            <typeparam name="NewModel">转换后的对象</typeparam>
+            <typeparam name="Model">需要转换的对象</typeparam>
+            <param name="model">需要转换的实体对象</param>
+            <param name="isSetField">是否需要给公共变量赋值</param>
+            <returns>NewModel</returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ListConvert``2(System.Collections.Generic.List{``1})">
+            <summary>
+             对象转换（转换为一个新的对象集合）
+            </summary>
+            <typeparam name="NewModel">转换后的对象</typeparam>
+            <typeparam name="Model">需要转换的对象</typeparam>
+            <param name="models">需要转换的实体对象集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.SetEntityPropertyValue``1(System.Object,``0,System.Boolean)">
+            <summary>
+            将新实体的属性赋予给旧属性（简单属性)
+            </summary>
+            <typeparam name="T">类别</typeparam>
+            <param name="oldModel">旧实体</param>
+            <param name="newModel">新实体</param>
+            <param name="isSetNull">是否设置为空的值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.SetEntityPropertyValue``1(System.Object,``0)">
+            <summary>
+            将新实体的属性赋予给旧属性（简单属性)
+            </summary>
+            <typeparam name="T">类别</typeparam>
+            <param name="oldModel">旧实体</param>
+            <param name="newModel">新实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.SetEntityPropertyValue``1(System.Object,``0,System.String@)">
+            <summary>
+            将新实体的属性赋予给旧属性（简单属性)
+            </summary>
+            <typeparam name="T">类别</typeparam>
+            <param name="oldModel">旧实体</param>
+            <param name="newModel">新实体</param>
+            <param name="errMsg">错误消息</param>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.PropertyValueIsEqual``1(``0,``0,System.Collections.Generic.List{System.String})">
+            <summary>
+            新对象的属性是否与原对象的属性值相等
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="newModel">新对象</param>
+            <param name="oldModel">原对象</param>
+            <param name="exceptProperyList">排除比较的属性值集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ListConvertToDataTable(System.Collections.IList)">
+            <summary>
+            将List转换成DataTable
+            </summary>
+            <param name="list">数据集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ListConvertToDataTable(System.Collections.IList,System.Collections.Generic.List{System.String})">
+            <summary>
+            将List转换成DataTable
+            </summary>
+            <param name="list">数据集合</param>
+            <param name="cols">要转换成DataTable的属性名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ListConvertToDataTable(System.Collections.IList,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String})">
+            <summary>
+            将List转换成DataTable
+            </summary>
+            <param name="list">数据集合</param>
+            <param name="cols">要转换成DataTable的属性名称</param>
+            <param name="exceptCols">需要排除的列名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.ORMListToDataTable(System.Collections.IList)">
+            <summary>
+            将ORM对象List转换成DataTable
+            </summary>
+            <param name="list">数据集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.ObjectConvert.GetSqlParsClone(System.Data.IDataParameter[])">
+            <summary>
+            取得SQL参数数组副本
+            </summary>
+            <param name="pars">SQL参数数组</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.Pagination">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.Pagination.CurPage">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:Gd.Common.Pagination.PageSize">
+            <summary>
+            每页记录数
+            </summary>
+        </member>
+        <member name="P:Gd.Common.Pagination.TotalPage">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Gd.Common.Pagination.TotalRecords">
+            <summary>
+            总记录数
+            </summary>
+        </member>
+        <member name="P:Gd.Common.Pagination.CurPageRecords">
+            <summary>
+            当前页记录数
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Pagination.SetPage">
+            <summary>
+            分页
+            </summary>
+        </member>
+        <member name="F:Gd.Common.Pagination.StartRowNum">
+            <summary>
+            开始行号 在调用方法SetPage后自动产生 值为：(CurPage - 1) * PageSize
+            </summary>
+        </member>
+        <member name="F:Gd.Common.Pagination.EndRowNum">
+            <summary>
+            结束行号 在调用方法SetPage后自动产生 值为：CurPage * PageSize
+            </summary>
+        </member>
+        <member name="T:Gd.Common.Special">
+            <summary>
+            特殊处理类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Special.GetAppCode(System.String)">
+            <summary>
+            为光大平台生成授权码
+            </summary>
+            <param name="appName">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Special.CheckAppSysPwd(System.String)">
+            <summary>
+            验证光大平台超级管理员密码
+            </summary>
+            <param name="spCode">动态密码</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.SysErrorLog">
+            <summary>
+            系统错误日志类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.SysErrorLog.Write(System.String)">
+            <summary>
+            写错误日志
+            </summary>
+        </member>
+        <member name="M:Gd.Common.SysErrorLog.Write(System.String,System.String)">
+            <summary>
+            写错误日志 shupeng by 20180830
+            </summary>
+            <param name="fileDirectory">日志文件目录</param>
+            <param name="errMsg">错误消息</param>
+        </member>
+        <member name="M:Gd.Common.SysErrorLog.Write(System.String,System.String,Gd.Common.EnErrorFileBuildMode)">
+            <summary>
+            写错误日志 shupeng by 20180830
+            </summary>
+            <param name="fileDirectory">日志文件目录</param>
+            <param name="errMsg">错误消息</param>
+            <param name="fileBuilMode">错误日志文件生成模式</param>
+        </member>
+        <member name="M:Gd.Common.SysErrorLog.Write(System.String,Gd.Common.EnErrorFileBuildMode)">
+            <summary>
+            写错误日志
+            </summary>
+            <param name="errMsg">错误消息</param>
+            <param name="fileBuilMode">错误日志文件生成模式</param>
+        </member>
+        <member name="M:Gd.Common.SysErrorLog.WriteNoTarget(System.String,Gd.Common.EnErrorFileBuildMode)">
+            <summary>
+            写错误日志不添加目录调用对象
+            </summary>
+            <param name="errMsg">错误消息</param>
+            <param name="fileBuilMode">错误日志文件生成模式</param>
+        </member>
+        <member name="M:Gd.Common.SysErrorLog.WriteNoTarget(System.String)">
+            <summary>
+            写错误日志不添加目录调用对象
+            </summary>
+        </member>
+        <member name="T:Gd.Common.EnErrorFileBuildMode">
+            <summary>
+            日志文件生成方式 
+            </summary>
+        </member>
+        <member name="F:Gd.Common.EnErrorFileBuildMode.Default">
+            <summary>
+            默认文件名
+            </summary>
+        </member>
+        <member name="F:Gd.Common.EnErrorFileBuildMode.Day">
+            <summary>
+            按天生成文件名
+            </summary>
+        </member>
+        <member name="F:Gd.Common.EnErrorFileBuildMode.Month">
+            <summary>
+            按月生成文件名
+            </summary>
+        </member>
+        <member name="F:Gd.Common.EnErrorFileBuildMode.Year">
+            <summary>
+            按年生成文件名
+            </summary>
+        </member>
+        <member name="T:Gd.Common.SysLog">
+            <summary>
+            系统日志类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.SysLog.Write(System.String,System.String,System.String@)">
+            <summary>
+            写日志
+            <param name="fileLogPath">日志文件路径名</param>
+            <param name="logContent">日志内容</param>
+            <param name="errMsg">错误消息</param>
+            </summary>
+        </member>
+        <member name="M:Gd.Common.SysLog.WriteNoTarget(System.String,Gd.Common.EnErrorFileBuildMode,System.String@)">
+            <summary>
+            写日志 syslog.log
+            </summary>
+            <param name="logContent">日志内容</param>
+            <param name="fileBuilMode">日志文件生成模式</param>
+            <param name="errMsg">错误消息</param>
+        </member>
+        <member name="T:Gd.Common.Util">
+            <summary>
+            常用方法类
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util.Get32MD5String(System.String)">
+            <summary>
+            获取32位MD5值,转化为字符串.
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetUTF832MD5String(System.String)">
+            <summary>
+            获取32位MD5值,转化为字符串.
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.Get16MD5String(System.String)">
+            <summary>
+            获取16位MD5码,转化为字符串(32位MD5的中间16位)
+            </summary>
+            <param name="str">要加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.Get16UTF8MD5String(System.String)">
+            <summary>
+            获取16位MD5码,转化为字符串(32位MD5的中间16位)
+            </summary>
+            <param name="str">要加密字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetSHA1String(System.String)">
+            <summary>
+            获取SHA1码,转化为字符串
+            </summary>
+            <param name="str">要加密的字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetThumbnailImage(System.String,System.Int32,System.Int32)">
+            <summary>
+            得到图片缩略图
+            </summary>
+            <param name="imgUrl">图片地址</param>
+            <param name="width">缩略宽度</param>
+            <param name="height">缩略高度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetThumbnailImageString(System.String,System.Int32,System.Int32)">
+            <summary>
+            得到图片缩略图
+            </summary>
+            <param name="imgUrl">图片地址</param>
+            <param name="width">缩略宽度</param>
+            <param name="height">缩略高度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.Compress(System.String,System.String)">
+            <summary>
+            压缩文件夹
+            </summary>
+            <param name="dirPath">文件夹路径</param>
+            <param name="fileName">压缩后名称</param>
+        </member>
+        <member name="M:Gd.Common.Util.CreateRndNumImage(System.Int32,System.Int32,System.String@,System.Single)">
+            <summary>
+            返回数字验证码图片内存流
+            </summary>
+            <param name="vNumLength">长度(多少位数字)</param>
+            <param name="fontSize">字体大小</param>
+            <param name="outVCode">验证码值</param>
+            <param name="scale">图片长度比例值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.CreateRndChineseImage(System.Int32,System.Int32,System.String@,System.Single)">
+            <summary>
+            返回中文验证码图片内存流
+            </summary>
+            <param name="vNumLength">长度(多少位数字)</param>
+            <param name="fontSize">字体大小</param>
+            <param name="outVCode">验证码值</param>
+            <param name="scale">图片长度比例值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.DrawImageText(System.Int32,System.String,System.Single)">
+            <summary>
+            画验证码图片
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util.GetRndNum(System.Int32)">
+            <summary>
+            得到随机数字及字母
+            </summary>
+            <param name="vNumLength">随机长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetRndOnlyNum(System.Int32)">
+            <summary>
+            得到随机数字
+            </summary>
+            <param name="vNumLength">随机数字长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetRndText(System.Int32)">
+            <summary>
+            得到随机汉字
+            </summary>
+            <param name="strlength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetEnumNameByType(System.Type,System.Object)">
+            <summary>
+            根据枚举值返回相应枚举名称
+            </summary>
+            <param name="en">枚举类型</param>
+            <param name="num">枚举值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetEnumNameByType(System.Type,System.Int32)">
+            <summary>
+            根据枚举值返回相应枚举名称
+            </summary>
+            <param name="en">枚举类型</param>
+            <param name="num">枚举值</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.HtmlEncode(System.Object)">
+            <summary>
+            对html字符进行输出编码
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util.HtmlEncode(System.Object,System.Int32)">
+            <summary>
+            对html字符进行输出编码
+            <param name="len">字数</param>
+            <param name="obj">进行编码的对象</param>
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util.CutString(System.String,System.Int32)">
+            <summary>
+            截取字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.CutFixedString(System.String,System.Int32,System.Int32)">
+            <summary>
+            截取字符串【默认汉字占用长度为2】
+            </summary>
+            <param name="str">字符串长度</param>
+            <param name="len">长度</param>
+            <param name="charLen">汉字所占长度</param>
+            <returns>截取后的字符串</returns>
+        </member>
+        <member name="M:Gd.Common.Util.CutFixedString(System.String,System.Int32)">
+            <summary>
+            截取字符串【默认汉字占用长度为2】
+            </summary>
+            <param name="str">字符串长度</param>
+            <param name="len">长度</param>
+            <returns>截取后的字符串</returns>
+        </member>
+        <member name="M:Gd.Common.Util.HtmlEncode(System.Object,System.Nullable{System.Boolean})">
+            <summary>
+            对html字符进行输出编码
+            </summary>
+            <param name="isRep">是否要替换掉换行</param>
+            <param name="obj">进行编码的对象</param>
+        </member>
+        <member name="M:Gd.Common.Util.GetNextMonth(System.Int32)">
+            <summary>
+            取得当前年月的下一个月
+            </summary>
+            <param name="yearMonth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetPrveMonth(System.Int32)">
+            <summary>
+            根据当前年月取得上一个月
+            </summary>
+            <param name="yearMonth"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetDatetimeString(System.Text.RegularExpressions.Match)">
+            <summary>
+            将时间由"\/Date(10000000000-0700)\/" 格式转换成 "yyyy-MM-dd HH:mm:ss" 格式的字符串
+            </summary>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.FormatDateTimeString(System.String)">
+            <summary>
+            将时间由"\/Date(10000000000-0700)\/" 格式转换成 "yyyy-MM-dd HH:mm:ss" 格式的字符串
+            </summary>
+            <param name="jsonString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetDatetimeJson(System.Text.RegularExpressions.Match)">
+            <summary>
+            将时间由 "yyyy-MM-dd HH:mm:ss" 格式的字符串转换成"\/Date(10000000000-0700)\/" 格式
+            </summary>
+            <param name="m"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.FormatDateTimeJson(System.String)">
+            <summary>
+            将时间由"\/Date(10000000000-0700)\/" 格式转换成 "yyyy-MM-dd HH:mm:ss" 格式的字符串
+            </summary>
+            <param name="jsonString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonString``1(``0)">
+            <summary>
+            返回json字符串[System.Runtime.Serialization.Json]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonString``1(``0,System.Boolean)">
+            <summary>
+            返回json字符串[System.Runtime.Serialization.Json]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model">实体对象</param>
+            <param name="isFormatTime">是否格式化时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonJSString``1(``0)">
+            <summary>
+            返回json字符串[System.Web.Script.Serialization]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="model">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonObjFromJS``1(System.String)">
+            <summary>
+            通过json字符串返回对象
+            </summary>
+            <typeparam name="T">对象</typeparam>
+            <param name="jsonStr">json字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonString``1(System.Collections.Generic.List{``0})">
+            <summary>
+            返回json字符串[System.Runtime.Serialization.Json]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="models">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonString``1(System.Collections.Generic.List{``0},System.Boolean)">
+            <summary>
+            返回json字符串[System.Runtime.Serialization.Json]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="models">实体对象</param>
+            <param name="isFormatTime">是否格式化时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonJSString``1(System.Collections.Generic.List{``0})">
+            <summary>
+            返回json字符串[System.Web.Script.Serialization]
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="models">实体对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonObj``1(System.String,``0@)">
+            <summary>
+            返回json序列化对象
+            </summary>
+            <param name="jsonString">json字符串</param>
+            <param name="model">实例化对象</param>
+            <typeparam name="T">泛型类型</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonObj``1(System.String,``0@,System.Boolean)">
+            <summary>
+            返回json序列化对象
+            </summary>
+            <param name="jsonString">json字符串</param>
+            <param name="model">实例化对象</param>
+            <param name="isFormatTime">是否格式化时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonObjs``1(System.String,System.Collections.Generic.List{``0}@,System.Boolean)">
+            <summary>
+            返回json序列化对象集合
+            </summary>
+            <param name="jsonString">json字符串</param>
+            <param name="models">实例化对象</param>
+            <param name="isFormatTime">是否格式化时间</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetJsonObjs``1(System.String,System.Collections.Generic.List{``0}@)">
+            <summary>
+            返回json序列化对象集合
+            </summary>
+            <param name="jsonString">json字符串</param>
+            <param name="models">实例化对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.NumToUpCase(System.String,System.String@)">
+            <summary>
+            将数字字符串转换成大写格式(包括人民币单位)
+            </summary>
+            <param name="num">数字字符串(保留两位小数的数字字符串，整数部分不能超过十位)</param>
+            <param name="note">提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.NumToUpCaseNoUnit(System.String,System.Int32,System.Int32,System.String@)">
+            <summary>
+            将数字字符串转换成大写格式(不包括人民币单位)
+            </summary>
+            <param name="num">数字字符串</param>
+            <param name="leftLenth">小数点左边保留位数</param>
+            <param name="rightLenth">小数点右边保留位数</param>
+            <param name="note">提示消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.IsNumber(System.String)">
+            <summary>
+            判断字符串是否只包含数字(0~9)
+            </summary>
+            <param name="s">字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.ReplaceStr(System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            将键值对替换成对应的值
+            </summary>
+            <param name="str">字符串</param>
+            <param name="dics">键值对集合</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetPreStr(System.String,System.String)">
+            <summary>
+            取得前项字符串
+            </summary>
+            <param name="fullStr">完整字符串</param>
+            <param name="endStr">截止字符串</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.SplitList``1(System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            撤分集合[将大集合拆分成多个小集合]
+            </summary>
+            <param name="strList">集合对象</param>
+            <param name="oneMax">每个集合最大数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.IsImageFile(System.IO.Stream)">
+            <summary>
+            是否图片文件（头文件验证）
+            </summary>
+            <param name="fs">流</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.IsVideoFile(System.IO.Stream)">
+            <summary>
+            是否为视频文件（头文件验证） 目前只验证了flv
+            </summary>
+            <param name="fs">流</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetCPUID(System.String@)">
+            <summary>
+            获取CPUID序号 多个CPU序号用\r\n分隔
+            </summary>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetMainBoardSerialNumber(System.String@)">
+            <summary>
+            获取主板编号
+            </summary>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetMacAddress(System.String@)">
+            <summary>
+            获取本机物理地址
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.XmlValidateByXSD(System.String,System.String,System.String@,System.String,System.String)">
+            <summary>
+            通过XSD验证XML格式 
+            </summary>
+            <param name="xmlDoc">xml文档串</param>
+            <param name="xsdDoc">xsd文档串</param>
+            <param name="errMsg">错误消息</param>
+            <param name="xmlFilePath">xml文件路径,当xmlDoc参数为空时此参数有效</param>
+            <param name="xsdPath">xsd文件路径，当xsdDoc参数为空时此参数有效</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util.GetXmlSchemaValDetail(System.Exception)">
+            <summary>
+            取得XML架构验证错误详细情况k
+            </summary>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.Util_Linux">
+            <summary>
+            Linux操作
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util_Linux.RunLinuxShellCommand(System.String)">
+            <summary>
+            Linux系统下执行shell命令 不支持多命令组合
+            1、shell命令不能以\r\n作为换行，换行以\n即可，否则执行命令会报错。
+            2、shell命令是以linux.sh文件执行 需要授权。
+            </summary>
+            <param name="cmd">执行shell命令</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util_Linux.GetCpuID">
+            <summary>
+            获取CpuID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util_Linux.GetMainBoardSerialNumber">
+            <summary>
+            获取主板编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util_Linux.GetSystemUUID(System.String@)">
+            <summary>
+            获取系统UUID
+            </summary>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.Util_Win">
+            <summary>
+            Windows操作
+            </summary>
+        </member>
+        <member name="M:Gd.Common.Util_Win.GetCpuID">
+            <summary>
+            获取CpuID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.Util_Win.GetMainBoardSerialNumber">
+            <summary>
+            获取主板编号
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.XLSReport.Report">
+            <summary>
+            Excell报表
+            </summary>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.BuildXLSReport(Gd.Common.XLSReport.XSLPara,System.Int32,System.String@)">
+            <summary>
+            生成XLS报表
+            </summary>
+            <param name="para">参数</param>
+            <param name="startRowIndex">插入数据集开始行索引</param>
+            <param name="errMsg">错误消息</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetDataRows(System.String,System.String,System.Int32,System.String@)">
+            <summary>
+            返回报表数据行
+            </summary>
+            <param name="filePath">文件路径</param>
+            <param name="sheetName"></param>
+            <param name="startRowIndex">开始行索引从1开始</param>
+            <param name="errMsg">错误消息k</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetDataRows(System.IO.Stream,System.String,System.Int32,System.String@)">
+            <summary>
+            返回报表数据行
+            </summary>
+            <param name="stream">文件流</param>
+            <param name="sheetName"></param>
+            <param name="startRowIndex">开始行索引从1开始</param>
+            <param name="errMsg">错误消息k</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.CopyRows(System.Xml.XmlDocument,System.String,System.Int32,System.Int32)">
+            <summary>
+            复制行
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="targetRowNum">目标行号</param>
+            <param name="copyRows">复制行数</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.MergeDownCell(System.Xml.XmlDocument,System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            向下合并单元格
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="targetRowNum">目标行号</param>
+            <param name="cellIndex">单元索引号从1开始</param>
+            <param name="mergeRows">合并行数（含本行）</param>
+            <param name="content">单元格内容</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.MergeRightCell(System.Xml.XmlDocument,System.String,System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            向右合并单元格
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="targetRowNum">目标行号</param>
+            <param name="cellIndex">单元索引号从1开始</param>
+            <param name="mergeCells">合并格数（含当前格)</param>
+            <param name="content">单元格内容</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.FillTable(System.Xml.XmlDocument,System.String,System.Collections.Generic.List{Gd.Common.XLSReport.XLSDataItem},System.Int32)">
+            <summary>
+            填充表格
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="dataList">数据对象</param>
+            <param name="startRowNo">开始行号</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetDataRows(System.Xml.XmlDocument,System.String,System.Int32)">
+            <summary>
+            返回数据行
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="startRowNo">开始行</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.DeleteColumns(System.Xml.XmlDocument,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            删除列
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="startRowNo">开始行号</param>
+            <param name="endRowNo">结束行号</param>
+            <param name="startColumnNo">开始列号</param>
+            <param name="endColumnNo">结束行号</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.CopyRegion(System.Xml.XmlDocument,System.String,Gd.Common.XLSReport.CopyRegionPara)">
+             <summary>
+             复制区域
+             </summary>
+             <param name="xDoc">文档对象</param>
+             <param name="sheetName">工作区名称</param>
+            <param name="copyPara">复制参数</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetTable(System.Xml.XmlDocument,System.String)">
+            <summary>
+            取得表
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.AddTableRowCount(System.Xml.XmlNode,System.Int32)">
+            <summary>
+            增加表行数
+            </summary>
+            <param name="tableNode">表节点</param>
+            <param name="addRows">增加的行数</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.AddTableColumnCount(System.Xml.XmlNode,System.Int32)">
+            <summary>
+            增加表列数
+            </summary>
+            <param name="tableNode">表节点</param>
+            <param name="addRows">增加的行数</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetFixedRow(System.Xml.XmlDocument,System.String,System.Int32)">
+            <summary>
+            取得指定行
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="rowLocationNo">row的位置序号</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetLastRows(System.Xml.XmlDocument,System.String,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            取得当前行后的行数
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="rowLocationNo">row的位置序号</param>
+            <param name="rowCount">取的行数</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetRowNo(System.Xml.XmlDocument,System.String,System.Int32)">
+            <summary>
+            取得Row的序号(通过行号 解决头部有空号的问题)
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="targetRowNo">行号</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.AddCellIndex(System.Xml.XmlDocument,System.String,System.Int32)">
+            <summary>
+            添加单元格索引
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="rowLocationNo">row的位置序号</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.SetCellContentByIndex(System.Xml.XmlDocument,System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            设置单元格内容通过索引
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="targetRowNum">目标行号</param>
+            <param name="cellIndex">单元索引号从1开始</param>
+            <param name="content">单元格内容</param>
+        </member>
+        <member name="M:Gd.Common.XLSReport.Report.GetFixedIndexCell(System.Xml.XmlDocument,System.String,System.Int32,System.Int32)">
+            <summary>
+            取得指定索引单元格
+            </summary>
+            <param name="xDoc">文档对象</param>
+            <param name="sheetName">工作区名称</param>
+            <param name="rowLocationNo">row的位置序号</param>
+            <param name="cellIndex">单元格序号 从1开始</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Common.XLSReport.XSLPara">
+            <summary>
+            报表参数
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.TemplatePath">
+            <summary>
+            模板路径
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.FileSavePath">
+            <summary>
+            生成文件保存路径
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.SheetName">
+            <summary>
+            Excell工作区名称
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.TemplateContainRows">
+            <summary>
+            模板数据区包括的行号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.DelColumns">
+            <summary>
+            删除的列对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.CopyRegion">
+            <summary>
+            复制区域
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.DataList">
+            <summary>
+            报表数据项
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLPara.ChangeCells">
+            <summary>
+            改变的单元格集合
+            </summary>
+        </member>
+        <member name="T:Gd.Common.XLSReport.XLSDataItem">
+            <summary>
+            交叉表格列项数据
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSDataItem.Content">
+            <summary>
+            内容值
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSDataItem.ColumnIndex">
+            <summary>
+            列索引 从1开始递增
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSDataItem.Rows">
+            <summary>
+            占用行数 默认为1
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSDataItem.Cells">
+            <summary>
+            占用格数 默认为1
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSDataItem.RowOrderIndex">
+            <summary>
+            行排序号
+            </summary>
+        </member>
+        <member name="T:Gd.Common.XLSReport.XLSDataRow">
+            <summary>
+            数据行
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSDataRow.DataList">
+            <summary>
+            数据项值
+            </summary>
+        </member>
+        <member name="T:Gd.Common.XLSReport.DeleteColumnPara">
+            <summary>
+            删除列参数
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.DeleteColumnPara.StartRowNo">
+            <summary>
+            开始行号 从1开始
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.DeleteColumnPara.EndRowNo">
+            <summary>
+            结束行号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.DeleteColumnPara.StartColumnNo">
+            <summary>
+            开始列号 从1开始
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.DeleteColumnPara.EndColumnNo">
+            <summary>
+            结束列号
+            </summary>
+        </member>
+        <member name="T:Gd.Common.XLSReport.CopyRegionPara">
+            <summary>
+            复制对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.CopyRegionPara.Region">
+            <summary>
+            复制区域对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.CopyRegionPara.TargetColumnNo">
+            <summary>
+            复制目标开始列号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.CopyRegionPara.Copies">
+            <summary>
+            复制份数
+            </summary>
+        </member>
+        <member name="T:Gd.Common.XLSReport.XLSCell">
+            <summary>
+            单元格对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSCell.RowNo">
+            <summary>
+            行号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSCell.ColumnNo">
+            <summary>
+            列号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSCell.Content">
+            <summary>
+            内容 为null则不处理
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XLSCell.MergeCross">
+            <summary>
+            左右合并的列数，默认为不处理
+            </summary>
+        </member>
+        <member name="T:Gd.Common.XLSReport.XSLRegion">
+            <summary>
+            区域对象
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLRegion.SRowNo">
+            <summary>
+            开始行号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLRegion.ERowNo">
+            <summary>
+            结束行号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLRegion.SColNo">
+            <summary>
+            开始列号
+            </summary>
+        </member>
+        <member name="P:Gd.Common.XLSReport.XSLRegion.EColNo">
+            <summary>
+            结束列号
+            </summary>
+        </member>
+        <member name="T:Gd.Config.GDConfig">
+            <summary>
+            光大通用配置类(按照配置格式读取)
+            </summary>
+        </member>
+        <member name="M:Gd.Config.GDConfig.GetConfig_Model(System.String,System.String,System.String@)">
+            <summary>
+            取得配置信息
+            </summary>
+            <param name="key">键值</param>
+            <param name="configPath">文件配置路径</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Config.GDConfig.GetConfig_Model(System.String,System.String@)">
+            <summary>
+            取得配置列表
+            </summary>
+            <param name="configPath">文件配置路径</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Config.GDConfig.GetConfigValue``1(System.String,System.String@)">
+            <summary>
+            取得配置对象(将配置的值转化为对象的属性值)
+            </summary>
+            <typeparam name="T">泛型对象</typeparam>
+            <param name="configPath">配置文件路径</param>
+            <param name="errMsg">错误消息</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Config.GDConfig.SaveConfig(System.String,Gd.Config.Model_GDConfig,System.String@)">
+            <summary>
+            保存配置
+            </summary>
+            <param name="configPath">文件配置路径</param>
+            <param name="errMsg">错误消息</param>
+            <param name="model">参数对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Config.GDConfig.SaveConfig(System.String,System.Collections.Generic.List{Gd.Config.Model_GDConfig},System.String@)">
+            <summary>
+            保存配置
+            </summary>
+            <param name="configPath">文件配置路径</param>
+            <param name="errMsg">错误消息</param>
+            <param name="models">参数对象</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gd.Config.Model_GDConfig">
+            <summary>
+            配置实体类
+            </summary>
+        </member>
+        <member name="P:Gd.Config.Model_GDConfig.Key">
+            <summary>
+            键
+            </summary>
+        </member>
+        <member name="P:Gd.Config.Model_GDConfig.Desc">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:Gd.Config.Model_GDConfig.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:Gd.Schedule.CallReturnRunInfo">
+            <summary>
+            回调
+            </summary>
+            <param name="runInfo">调度信息</param>
+        </member>
+        <member name="T:Gd.Schedule.RunPlan">
+            <summary>
+             调度计划执行类
+            </summary>
+        </member>
+        <member name="T:Gd.Schedule.RunPlan.RunPlanEvent">
+            <summary>
+            调度计划执行动作委托
+            <param name="obj">调度计划执行参数</param>
+            </summary>
+        </member>
+        <member name="E:Gd.Schedule.RunPlan.RunPlanFun">
+            <summary>
+            调度计划执行的事件
+            </summary>
+        </member>
+        <member name="T:Gd.Schedule.RunPlan.EndRunPlatEvent">
+            <summary>
+            调度计划执行完成动作委托
+            </summary>
+        </member>
+        <member name="E:Gd.Schedule.RunPlan.EndRun">
+            <summary>
+            调度计划执行完成事件
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.planModel">
+            <summary>
+            调度计划设置信息
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.tPlan">
+            <summary>
+            定时器(调度计划)
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.tEndPlan">
+            <summary>
+            结束调度计划定时器
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.tDisMsg">
+            <summary>
+            用于显示调度信息定时器
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.cycleTypeList">
+            <summary>
+            周期方式列表
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.planRunParaModel">
+            <summary>
+            调度计划执行参数
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.LockObj">
+            <summary>
+            调度计划锁定对象
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.nextRunDate">
+            <summary>
+            下次调度运行时间
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.curRunStartDate">
+            <summary>
+            本次调度开始时间
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.curRunEndDate">
+            <summary>
+            本次调度实际结束时间
+            </summary>
+        </member>
+        <member name="F:Gd.Schedule.RunPlan.curRunPreEndDate">
+            <summary>
+            本次调度预计结束时间
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.#ctor">
+            <summary>
+            调度计划执行类
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.#ctor(Gd.Schedule.CallReturnRunInfo)">
+            <summary>
+            调度计划执行类,可显示调度详细信息
+            </summary>
+            <param name="call">计时周期回调参数</param>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.StartPlan(Gd.Schedule.RunPlan.RunPlanAttr,System.String@)">
+            <summary>
+             开始执行调度
+            </summary>
+            <param name="model">调度计划设置信息</param>
+            <param name="errMsg">错误消息</param>
+            <returns>调度是否成功</returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.EndPlan">
+            <summary>
+            调度计划执行完成
+            需要重新计算调度计划时间
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.StopPlan">
+            <summary>
+             结束执行调度
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.LoadParaPlanForXml(System.String,Gd.Schedule.RunPlan.RunParasSetAttr@,Gd.Schedule.RunPlan.RunPlanAttr@,System.String@)">
+            <summary>
+            读取运行参数及调度计划
+            </summary>
+            <param name="configPath">配置文件路径</param>
+            <param name="paraModel">运行参数实体对象</param>
+            <param name="planModel">调度计划实体对象</param>
+            <param name="errMsg">错误消息</param>
+            <returns>加载是否成功</returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.SaveParaPlan(System.String,Gd.Schedule.RunPlan.RunParasSetAttr,Gd.Schedule.RunPlan.RunPlanAttr,System.String@)">
+            <summary>
+             保存云参数设置及调度计划
+            </summary>
+            <param name="configPath">配置文件路径</param>
+            <param name="paraModel">运行参数实体对象</param>
+            <param name="planModel">调度计划实体对象</param>
+            <param name="errMsg">错误消息</param>
+            <returns>保存是否成功</returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.ResetPlan">
+            <summary>
+             重新计算调度
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.SetEndPlan(System.DateTime)">
+            <summary>
+            结束调度计划时间设置
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.End(System.Object)">
+            <summary>
+             结束调度计划
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.Run(System.Object)">
+            <summary>
+             执行调度的委托
+            </summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.CheckPlan(System.String@)">
+            <summary>
+             验证调度计划设置
+            </summary>
+            <param name="errMsg">错误消息</param>
+            <returns>验证是否通过</returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.GetIntervalNum">
+            <summary>
+             取得间隔时间量 单位毫秒
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.GetDueNum(System.DateTime)">
+            <summary>
+            取得延迟量
+            </summary>
+            <param name="nowDate">当前时间</param>
+            <returns>延迟量</returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.GetErrMsg(System.Exception)">
+            <summary>
+            获取异常内容
+            </summary>
+            <param name="ex">异常对象</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.DisMsg(System.Object)">
+            <summary>
+            显示调度信息
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.GetCountDown(System.DateTime,System.DateTime)">
+            <summary>
+             取得倒计时字符串
+            </summary>
+            <param name="nowDate">当前时间</param>
+            <param name="endDate">目标时间</param>
+            <returns>倒计时字符串，格式【XX日XX小时XX分XX秒】</returns>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.SetDisTimer">
+            <summary>
+             设置显示调度信息Timer
+            </summary>
+        </member>
+        <member name="M:Gd.Schedule.RunPlan.SetNextDate(System.DateTime,System.Int64)">
+            <summary>
+             设置下次调度的时间
+            </summary>
+            <param name="nowDate">当前时间</param>
+            <param name="num">时间量</param>
+        </member>
+        <member name="T:Gd.Schedule.RunPlan.RunPlanAttr">
+            <summary>
+            调度计划实体
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunPlanAttr.CycleType">
+            <summary>
+            调度周期方式 1年 2月 3日 4小时 5分钟 6秒
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunPlanAttr.IntervalNum">
+            <summary>
+            间隔数 单位为周期方式对应的单位
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunPlanAttr.StartTime">
+            <summary>
+            起始时间
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunPlanAttr.RunTimeNum">
+            <summary>
+            周期运行时间 单位分钟
+            </summary>
+        </member>
+        <member name="T:Gd.Schedule.RunPlan.RunParasSetAttr">
+            <summary>
+            运行参数设置
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunParasSetAttr.IsAutoRun">
+            <summary>
+            是否随开机自动启动 1是 0否
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunParasSetAttr.IsUseRunPlan">
+            <summary>
+            是否启用调度运行  1是 0否
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.RunParasSetAttr.IsEXStopRun">
+            <summary>
+            是否发生异常终止运行 1是 0否
+            </summary>
+        </member>
+        <member name="T:Gd.Schedule.RunPlan.PlanRunParaAttr">
+            <summary>
+            调度计划执行参数实体
+            </summary>
+        </member>
+        <member name="P:Gd.Schedule.RunPlan.PlanRunParaAttr.RunState">
+            <summary>
+            调度计划执行状态 1正常执行 2停止执行
+            </summary>
+        </member>
+    </members>
+</doc>

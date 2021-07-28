@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ModelProperty</name>
+    </assembly>
+    <members>
+        <member name="T:Gd.ORM.Model.ModelProperty">
+            <summary>
+            实体特性
+            </summary>
+        </member>
+        <member name="M:Gd.ORM.Model.ModelProperty.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.ModelProperty.CurDbType">
+            <summary>
+            参数类型
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.ModelProperty.Size">
+            <summary>
+            参数长度
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.ModelProperty.sqlKey">
+            <summary>
+            1表示主键，0表示不是主键
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.ModelProperty.IsUserDefined">
+            <summary>
+            是否用户定义类型 默认False
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.ModelProperty.GUIDMS">
+            <summary>
+            GUID 值模式 1、值格式：e232ac41910f448f90f4c89ab7148b4b（N） 2、值格式：7be3fae0-f749-4be6-9bc6-d3fc45813bc2（D） 3、值格式:{dbf10f5c-3990-4dc2-8410-a33decc8bba3}（B）
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.ModelProperty.GUIDGXMS">
+            <summary>
+            GUID 更新模式 1、新增时生成，禁止修改 2、新增时生成，修改时重新生成 3、新增时生成，根据修改值修改
+            </summary>
+        </member>
+        <member name="T:Gd.ORM.Model.TableDescAttribute">
+            <summary>
+            表实体描述
+            </summary>
+        </member>
+        <member name="M:Gd.ORM.Model.TableDescAttribute.#ctor(System.String)">
+            <summary>
+            表实体描述
+            </summary>
+            <param name="tableName">表名</param>
+        </member>
+        <member name="M:Gd.ORM.Model.TableDescAttribute.#ctor(System.String,System.Boolean)">
+            <summary>
+            表实体描述
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="isLowerOrUpper">是否区分大小写</param>
+        </member>
+        <member name="M:Gd.ORM.Model.TableDescAttribute.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            表实体描述
+            </summary>
+            <param name="tableName">表名</param>
+            <param name="isLowerOrUpper">是否区分大小写</param>
+            <param name="tableNames">表名集合，多个用逗号分隔</param>
+        </member>
+        <member name="P:Gd.ORM.Model.TableDescAttribute.TableName">
+            <summary>
+            表名
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.TableDescAttribute.IsLowerOrUpper">
+            <summary>
+            是否区分大小写 区分大小写成生SQL语句时字段和表名要加上"或[]
+            </summary>
+        </member>
+        <member name="P:Gd.ORM.Model.TableDescAttribute.TableNames">
+            <summary>
+            表名集合
+            </summary>
+        </member>
+    </members>
+</doc>

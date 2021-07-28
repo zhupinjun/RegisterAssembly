@@ -1,0 +1,9 @@
+D:\zpj\demo1\WebApplication1\IService\bin\Debug\netcoreapp3.1\IService.deps.json
+D:\zpj\demo1\WebApplication1\IService\bin\Debug\netcoreapp3.1\IService.dll
+D:\zpj\demo1\WebApplication1\IService\bin\Debug\netcoreapp3.1\IService.pdb
+D:\zpj\demo1\WebApplication1\IService\obj\Debug\netcoreapp3.1\IService.csprojAssemblyReference.cache
+D:\zpj\demo1\WebApplication1\IService\obj\Debug\netcoreapp3.1\IService.AssemblyInfoInputs.cache
+D:\zpj\demo1\WebApplication1\IService\obj\Debug\netcoreapp3.1\IService.AssemblyInfo.cs
+D:\zpj\demo1\WebApplication1\IService\obj\Debug\netcoreapp3.1\IService.csproj.CoreCompileInputs.cache
+D:\zpj\demo1\WebApplication1\IService\obj\Debug\netcoreapp3.1\IService.dll
+D:\zpj\demo1\WebApplication1\IService\obj\Debug\netcoreapp3.1\IService.pdb
