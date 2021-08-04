@@ -20,18 +20,12 @@ namespace ConsoleApp1
 
         }
 
-        public string Name
-        {
-            get
-            { return myName; }
-        }
+        public string Name => myName;
 
-        public void SayHello()
+        public void SayHello() => Console.WriteLine(myName switch
         {
-            if (myName == null)
-                System.Console.WriteLine("Hello World");
-            else
-                System.Console.WriteLine("Hello," + myName);
-        }
+            null => "Hello World",
+            _ => $"Hello,{myName}"
+        });
     }
 }

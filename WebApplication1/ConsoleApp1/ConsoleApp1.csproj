@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GD.NP.Common" Version="3.1.0" />
+    <PackageReference Include="GD.NP.Framework" Version="3.1.2" />
+    <PackageReference Include="GD.NP.Security" Version="1.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Gd.Common">
       <HintPath>..\..\..\..\RDM\NetCore_PDMCODE\GDDLL\Gd.Common.dll</HintPath>
     </Reference>

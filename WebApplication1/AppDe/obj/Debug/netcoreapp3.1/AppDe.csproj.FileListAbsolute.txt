@@ -1,0 +1,15 @@
+D:\zpj\demo1\WebApplication1\AppDe\bin\Debug\netcoreapp3.1\AppDe.exe
+D:\zpj\demo1\WebApplication1\AppDe\bin\Debug\netcoreapp3.1\AppDe.deps.json
+D:\zpj\demo1\WebApplication1\AppDe\bin\Debug\netcoreapp3.1\AppDe.runtimeconfig.json
+D:\zpj\demo1\WebApplication1\AppDe\bin\Debug\netcoreapp3.1\AppDe.runtimeconfig.dev.json
+D:\zpj\demo1\WebApplication1\AppDe\bin\Debug\netcoreapp3.1\AppDe.dll
+D:\zpj\demo1\WebApplication1\AppDe\bin\Debug\netcoreapp3.1\AppDe.pdb
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.csprojAssemblyReference.cache
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.Form1.resources
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.csproj.GenerateResource.cache
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.AssemblyInfoInputs.cache
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.AssemblyInfo.cs
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.csproj.CoreCompileInputs.cache
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.dll
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.pdb
+D:\zpj\demo1\WebApplication1\AppDe\obj\Debug\netcoreapp3.1\AppDe.genruntimeconfig.cache

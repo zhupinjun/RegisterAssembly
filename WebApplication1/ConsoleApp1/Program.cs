@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection;
+using System.Text;
 
 namespace ConsoleApp1
 {
@@ -7,6 +8,11 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            var dd= Encoding.Default.GetBytes("21");
+            ASYNC.TestMain();
+
+            RsaDa rsaDa = new RsaDa();
+            rsaDa.DDD();
             System.Console.WriteLine("列出程序集中的所有类型");
             Assembly a = Assembly.LoadFrom("ConsoleApp1.dll");
 
@@ -56,13 +62,10 @@ namespace ConsoleApp1
         }
     }
     //隐藏式实现例子
-    public interface IChinese: IEnglish
+    public interface IChinese : IEnglish
     {
         string Speak();
-        string SCora()
-        {
-            return "cc";
-        }
+        string SCora() => "cc";
     }
     public class Speaker : IChinese
     {
